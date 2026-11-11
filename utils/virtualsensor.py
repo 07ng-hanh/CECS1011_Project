@@ -43,7 +43,7 @@ async def send_real_sensor_data():
                             # Read and decode line
                             raw_line = ser.readline().decode('utf-8', errors='ignore').strip()
                             
-                            # Validation: Ensure the data contains our expect   ed keys
+                            # Validation: Ensure the data contains our expected keys
                             if all(key in raw_line for key in ["TEMP:", "HUM:", "CO2:"]):
                                 # Parse format: TEMP:24.5,HUM:50.2,CO2:600
                                 parts = {item.split(":")[0]: float(item.split(":")[1]) for item in raw_line.split(",")}
